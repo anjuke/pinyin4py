@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import os
 import unittest
-import pinyin
+from anjuke import pinyin
 
 class Tests(unittest.TestCase):
     def setUp(self):
@@ -22,8 +23,8 @@ class Tests(unittest.TestCase):
 
     def testConverterWithFile(self):
         converter = pinyin.Converter()
-        converter.load_word_file('words.txt')
-        print converter.convert('莘莘莘莘学子莘庄闵行区北翟路')
+        converter.load_word_file(os.path.dirname(os.path.abspath(__file__)) + '/words.txt')
+        print converter.convert('什么莘莘莘莘学子莘庄闵行区北翟路')
 
 if __name__ == '__main__':
     unittest.main()

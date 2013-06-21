@@ -33,7 +33,7 @@ _character_mapper = _load_character_mapper()
 class Tokenizer:
     def __init__(self, text):
         assert isinstance(text, unicode)
-        
+
         self._text = text
         self._pos = 0
         self._length = len(text)
@@ -85,7 +85,7 @@ class WordMapper:
                 self[word] = pinyin
         finally:
             f.close()
-            
+
     def __setitem__(self, word, pinyin):
         assert isinstance(word, unicode)
 
@@ -101,7 +101,7 @@ class WordMapper:
         assert isinstance(word, unicode)
 
         length = len(word)
-        
+
         pinyin = []
         pos = 0
         last_pinyin = None
@@ -172,7 +172,7 @@ class Converter:
                 if last_type == 2:
                     pinyin += ' '
                 pinyin += word
-                
+
             last_type = type
 
         return pinyin
@@ -226,7 +226,7 @@ class Converter:
     def _format_ch(self, ch, fmt, fuzzy):
         if fuzzy > 0:
             raise Exception('Not implemented')
-        
+
         if fmt == 'df':
             return ch[:-1]
 
@@ -237,4 +237,3 @@ class Converter:
             return ch[0]
 
         raise Exception('Not implemented')
-

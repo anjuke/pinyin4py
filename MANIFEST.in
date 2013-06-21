@@ -1,0 +1,4 @@
+include src/anjuke/pinyin/chars.txt
+
+include README.md
+recursive-include doc *
